@@ -1,0 +1,16 @@
+[
+    {
+        "type": "Graduação",
+        "title": "Bacharelado em Ciência da Computação",
+        "institution": "Instituto Federal de São Paulo (IFSP)",
+        "duration": "2021 - 2024",
+        "description": "engenharia de software, banco de dados, redes de computadores, inteligência artificial, sistemas distribuídos, computação gráfica, programação orientada a objetos, programação web, programação mobile, análise e construção de algoritmos, matemática discreta, cálculo"
+    },
+    {
+        "type": "Ensino Médio",
+        "title": "Técnico em Administração",
+        "institution": "Instituto Germinare",
+        "duration": "2017 - 2019",
+        "description": "Ensino Médio com técnico em administração, além das disciplinas regulares, foram estudadas disciplinas técnicas como contabilidade, economia, marketing, recursos humanos, logística, empreendedorismo, matemática financeira, estatística, direito empresarial."
+    }
+]

@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Blog",
+        "title": "Blog Pessoal",
+        "description": "Website de blog pessoal, com interface responsiva e painel de controle",
+        "imagePath": "/assets/blog.png",
+        "technologies": ["PHP", "Laravel", "MySQL", "HTML", "CSS", "Bootstrap"],
+        "links": {
+            "github": "https://github.com/isabellabsouza/Blog",
+            "website": "https://nataliabicudo.com/"
+        }
+    },
+    {
+        "name": "Cafe",
+        "title": "èpCafé",
+        "description": "Software para gerenciamento de propriedades cafeeiras",
+        "imagePath": "/assets/cafe.png",
+        "technologies": ["Java", "MySQL", "HTML", "CSS" ],
+        "links": {
+            "website": "http://epcafe.ifs.ifsuldeminas.edu.br:8080/epcafe/"
+        }
+    },
+    {
+        "name": "App",
+        "title": "èpCafé Mobile",
+        "description": "Aplicativo local first para gerenciamento de propriedades cafeeiras",
+        "imagePath": "/assets/app.jpeg",
+        "technologies": ["React Native", "Expo", "Node", "Typescript", "Supabase"],
+        "links": {
+            "github": "https://github.com/isabellabsouza/epcafe-mobile"
+        }
+    },
+    {
+        "name": "Cineshow",
+        "title": "Cineshow",
+        "description": "Plataforma para gerenciamento de cinemas",
+        "imagePath": "/assets/cineshow.png",
+        "technologies": ["Java", "Spring", "HTML", "CSS", "Bootstrap", "PostgreSQL"],
+        "links": {
+            "github": "https://github.com/isabellabsouza/cineshow"
+        }
+    }
+]
