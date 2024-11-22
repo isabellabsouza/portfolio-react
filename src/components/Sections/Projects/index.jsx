@@ -5,7 +5,7 @@ import projectsData from './assets/projectsData.json';
 
 export default function Projects() {
     return (
-        <section>
+        <section id="projects">
             <h2>Projetos</h2>
             <Grid container spacing={3} rowSpacing={3} sx={{ marginTop: '50px' }}>
                 {projectsData.map((project) => (

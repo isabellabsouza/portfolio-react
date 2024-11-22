@@ -1,4 +1,3 @@
-import styles from './styles.module.css'; 
 import {Button} from '@mui/material';
 export default function PrimaryButton({ text, onClick }) {
     return (

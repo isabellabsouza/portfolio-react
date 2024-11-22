@@ -1,15 +1,7 @@
-import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import ContactListItem from '../../EducationCard/contactListItem';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import ContactListItem from './ContactListItem';
 
 
 export default function Contact() {

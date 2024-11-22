@@ -1,22 +1,20 @@
-import { TypeAnimation } from "react-type-animation";
-import PrimaryButton from "@/components/PrimaryButton";
-import SecondaryButton from "@/components/SecondaryButton";
-import styles from './styles.module.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import IconButton from '@mui/material/IconButton';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Typography from '@mui/material/Typography';
 import ParticlesBg from "@/components/Particles/ParticlesBg";
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
+import PrimaryButton from "@/components/Buttons/PrimaryButton";
+import SecondaryButton from "@/components/Buttons/SecondaryButton";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link, Box, Container, IconButton, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
+import { TypeAnimation } from "react-type-animation";
+import { scroller } from "react-scroll";
+
 
 export default function Home() {
 
     return (
         <Container >
             <ParticlesBg />
-            <Box>
+            <Box sx={{ height: '100vh', display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
                 <Typography variant="h2">Isabella Bicudo</Typography>
                 <TypeAnimation
                     sequence={[
@@ -33,19 +31,37 @@ export default function Home() {
                     repeat={Infinity}
                 />
                 <Grid>
-                    <Grid>
-                        <PrimaryButton text="Currículo" onClick={() => window.open('./assets/curriculo.pdf')} />
-                        <SecondaryButton text="Projetos" />
+                    <Grid sx={{ marginY: 3 }}>
+                        <PrimaryButton 
+                            text="Currículo" 
+                            onClick={
+                                () => window.open('./assets/curriculo.pdf')
+                            } 
+                        />
+                        <SecondaryButton 
+                            text="Projetos" 
+                            onClick={
+                                () => scroller.scrollTo("projects", {
+                                    duration: 1000,
+                                    delay: 0,
+                                    smooth: "easeInOutQuart",   
+                                })
+                            } 
+                        />
                     </Grid>
 
-
-                    <IconButton aria-label="git-hub" size="large">
-                        <GitHubIcon />
-                    </IconButton>
-                    <IconButton aria-label="linkedin" size="large">
-                        <LinkedInIcon />
-                    </IconButton>
-
+                    <Grid sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <Link href="https://github.com/isabellabsouza" target="_blank">
+                            <IconButton aria-label="git-hub" size="large" sx={{ marginRight: 2 }}>
+                                <GitHubIcon />
+                            </IconButton>
+                        </Link>
+                        <Link href="https://linkedin.com/in/isabella-bicudo-de-souza-1879141bb" target="_blank">
+                            <IconButton aria-label="linkedin" size="large">
+                                <LinkedInIcon />
+                            </IconButton>
+                        </Link>
+                    </Grid>
                 </Grid>
             </Box>
         </Container>
