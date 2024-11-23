@@ -1,18 +1,11 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
 import projectsData from '@/components/Sections/Projects/assets/projectsData.json';
-import Box from '@mui/material/Box';
-import { iconsList } from '../Sections/Skills/SkillsIcons';
-import Tooltip from '@mui/material/Tooltip';
+import {Box, Button, Card, CardActions, CardContent, CardMedia, Tooltip, Typography} from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { iconsList } from '../Skills/SkillsIcons';
 
 
-export default function CardCustom({ projectName }) {
+export default function ProjectCard({ projectName }) {
     const project = projectsData.find(proj => proj.name === projectName);
 
     if (!project) {
@@ -45,6 +38,7 @@ export default function CardCustom({ projectName }) {
                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, marginTop: 2 }}>
                                 {project.technologies.map((technology) => (
                                     <Tooltip
+                                        key={technology}
                                         title={technology}
                                         componentsProps={{
                                             tooltip: {
@@ -71,7 +65,7 @@ export default function CardCustom({ projectName }) {
                                         <Box sx={{ width: 25, height: 25, mx: 1 }}>
                                             {
                                                 iconsList.map(({ name, component: IconComponent }) => (
-                                                    technology === name && <IconComponent />
+                                                    technology === name && <IconComponent key={name} />
                                                 ))
                                             }
                                         </Box>

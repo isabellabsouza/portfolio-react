@@ -10,6 +10,10 @@ import {
     alpha,
     getContrastRatio,
 } from '@mui/material/styles';
+import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
+import ParticlesBg from "@/components/Particles/ParticlesBg";
+import { useState, useEffect } from "react";
+
 
 const pinkBase = '#D72483';
 const pinkMain = alpha(pinkBase, 0.7);
@@ -38,10 +42,32 @@ theme = createTheme({
 
 function App() {
 
+    const { scrollYProgress } = useScroll();
+
+    const starOpacity = useTransform(
+        scrollYProgress,
+        [0, 0.2, 0.4, 0.6, 0.8, 1], // Posições do scroll: início (0) até o fim (1)
+        [0.7, 0, 0, 0, 0, 0.7] // Opacidade correspondente para cada ponto
+    );
+
     return (
         <ThemeProvider theme={theme}>
-            <Home />
 
+            <motion.div 
+                style={{ 
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: -1,
+                    opacity: starOpacity, // Opacidade controlada dinamicamente
+                }}
+            >
+                <ParticlesBg />
+            </motion.div>
+
+            <Home />
             <Projects />
             <Skills />
             <Education />

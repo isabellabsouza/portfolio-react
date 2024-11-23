@@ -1,4 +1,3 @@
-import ParticlesBg from "@/components/Particles/ParticlesBg";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -13,7 +12,6 @@ export default function Home() {
 
     return (
         <Container >
-            <ParticlesBg />
             <Box sx={{ height: '100vh', display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
                 <Typography variant="h2">Isabella Bicudo</Typography>
                 <TypeAnimation

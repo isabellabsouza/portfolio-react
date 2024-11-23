@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { animate, motion, useAnimation, useMotionValue } from 'framer-motion';
 import { useEffect } from 'react';
 import { iconsList } from './SkillsIcons';
@@ -9,42 +8,53 @@ import useMeasure from 'react-use-measure';
 
 export default function Skills() {
 
-    let [ref, { width }] = useMeasure();
-    const xTranslation = useMotionValue(0);
-
+    const controls = useAnimation();
+    let [ref, {width}] = useMeasure();
     useEffect(() => {
-        console.log('ref', ref)
-        console.log('width', width)
-        let finalPosition = -width;
-        console.log('finalPosition', finalPosition)
-        const controls = animate(xTranslation, [0, finalPosition], {
-            ease: 'linear',
-            duration: 10,
-            repeat: Infinity,
-            repeatType: 'loop',
-            repeatDelay: 0,
-        })
 
-        return controls.stop;
-    }, [xTranslation, width])
+        let finalPosition = -width;
+
+        controls.start({
+            x: ["0%", finalPosition],
+            transition: {
+                x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "linear",
+                    duration: 10,
+                },
+            },
+        });
+    }, [controls]);
 
 
     return (
-        <section>
-            <h2>Tecnologias</h2>
-            <div style={{overflowY: 'hidden'}}>
-                <motion.div style={{ display: 'flex', flexDirection: 'row', x: xTranslation }} ref={ref}>
+        <Box
+            sx={{
+                height: '92vh',
+                paddingTop: '50px',
+                textAlign: 'center',
+            }}
+        >
+            <Typography variant="h4" sx={{ marginBottom: 5 }} >Tecnologias</Typography>
+
+            <Box sx={{ overflow: 'hidden', width: '100%', display: 'flex', marginTop: 10 }}>
+                <motion.div
+                    animate={controls}
+                    style={{ display: 'flex', minWidth: '100%' }}
+                    ref={ref}
+                >
                     {[...iconsList, ...iconsList].map(({ name, component: IconComponent }, index) => (
-                        <div key={index} style={{ minWidth: '130px', padding: 2 }}>
+                        <Box key={index} sx={{ minWidth: '130px', padding: 2 }}>
                             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3 }}>
                                 <IconComponent />
                                 <Typography variant="caption" sx={{ marginTop: 2 }}>{name}</Typography>
                             </Card>
-                        </div>
+                        </Box>
                     ))}
                 </motion.div>
-            </div>
+            </Box>
 
-        </section>
+        </Box>
     )
 }
