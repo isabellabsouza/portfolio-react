@@ -5,14 +5,15 @@ import { animate, motion, useAnimation, useMotionValue } from 'framer-motion';
 import { useEffect } from 'react';
 import { iconsList } from './SkillsIcons';
 import useMeasure from 'react-use-measure';
+import styles from './styles.module.css';
 
 export default function Skills() {
 
     const controls = useAnimation();
     let [ref, {width}] = useMeasure();
     useEffect(() => {
-
-        let finalPosition = -width;
+        console.log(iconsList.length * 130 );
+        let finalPosition = iconsList.length * 130 * -1;
 
         controls.start({
             x: ["0%", finalPosition],
@@ -39,12 +40,13 @@ export default function Skills() {
             <Typography variant="h4" sx={{ marginBottom: 5 }} >Tecnologias</Typography>
 
             <Box sx={{ overflow: 'hidden', width: '100%', display: 'flex', marginTop: 10 }}>
-                <motion.div
-                    animate={controls}
-                    style={{ display: 'flex', minWidth: '100%' }}
+                <div
+                    style={{ display: 'flex' }}
                     ref={ref}
+                    className={styles.carrossel}
                 >
-                    {[...iconsList, ...iconsList].map(({ name, component: IconComponent }, index) => (
+
+                    {iconsList.map(({ name, component: IconComponent }, index) => (
                         <Box key={index} sx={{ minWidth: '130px', padding: 2 }}>
                             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3 }}>
                                 <IconComponent />
@@ -52,7 +54,16 @@ export default function Skills() {
                             </Card>
                         </Box>
                     ))}
-                </motion.div>
+
+                    {iconsList.map(({ name, component: IconComponent }, index) => (
+                        <Box key={index} sx={{ minWidth: '130px', padding: 2 }}>
+                            <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3 }}>
+                                <IconComponent />
+                                <Typography variant="caption" sx={{ marginTop: 2 }}>{name}</Typography>
+                            </Card>
+                        </Box>
+                    ))}
+                </div>
             </Box>
 
         </Box>

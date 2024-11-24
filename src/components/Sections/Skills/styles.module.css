@@ -1,37 +1,25 @@
-.carousel {
-    position: relative;
-    overflow: hidden;
+.carrossel {
+display: flex;
+animation: bannermove 20s linear infinite;
 }
 
-.carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+
+.carrossel-linha {
+width: 100%;
 }
 
-.carousel-item {
-    flex: 0 0 130px;
-    /* Adjust width as needed */
-    /* Other styles for the card */
+.carrossel-item {
+list-style-type: none;
+padding-left: 0;
+margin: 0;
 }
 
-.active {
-    transform: translateX(-100%);
+  
+@keyframes bannermove {
+0% {
+    transform: translateX(0);
 }
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
+100% {
+    transform: translateX(-50%);
 }
-
-.carousel-button.prev {
-    left: 0;
-}
-
-.carousel-button.next {
-    right: 0;
 }
