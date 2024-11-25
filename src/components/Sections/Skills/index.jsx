@@ -1,33 +1,11 @@
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Typography from '@mui/material/Typography';
-import { animate, motion, useAnimation, useMotionValue } from 'framer-motion';
-import { useEffect } from 'react';
-import { iconsList } from './SkillsIcons';
+import { Box, Card, Typography } from '@mui/material';
 import useMeasure from 'react-use-measure';
+import { iconsList } from './SkillsIcons';
 import styles from './styles.module.css';
 
 export default function Skills() {
 
-    const controls = useAnimation();
-    let [ref, {width}] = useMeasure();
-    useEffect(() => {
-        console.log(iconsList.length * 130 );
-        let finalPosition = iconsList.length * 130 * -1;
-
-        controls.start({
-            x: ["0%", finalPosition],
-            transition: {
-                x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    ease: "linear",
-                    duration: 10,
-                },
-            },
-        });
-    }, [controls]);
-
+    let [ref, { width }] = useMeasure();
 
     return (
         <Box
@@ -43,11 +21,11 @@ export default function Skills() {
                 <div
                     style={{ display: 'flex' }}
                     ref={ref}
-                    className={styles.carrossel}
+                    className={styles.carousel}
                 >
 
                     {iconsList.map(({ name, component: IconComponent }, index) => (
-                        <Box key={index} sx={{ minWidth: '130px', padding: 2 }}>
+                        <Box key={index} sx={{ minWidth: '130px', padding: 2 }} className={styles.carouselItem}>
                             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3 }}>
                                 <IconComponent />
                                 <Typography variant="caption" sx={{ marginTop: 2 }}>{name}</Typography>
@@ -56,7 +34,7 @@ export default function Skills() {
                     ))}
 
                     {iconsList.map(({ name, component: IconComponent }, index) => (
-                        <Box key={index} sx={{ minWidth: '130px', padding: 2 }}>
+                        <Box key={index} sx={{ minWidth: '130px', padding: 2 }} className={styles.carouselItem}>
                             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3 }}>
                                 <IconComponent />
                                 <Typography variant="caption" sx={{ marginTop: 2 }}>{name}</Typography>

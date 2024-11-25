@@ -1,25 +1,29 @@
-.carrossel {
-display: flex;
-animation: bannermove 20s linear infinite;
+.carousel {
+    display: flex;
+    animation: bannermove 30s linear infinite;
+    animation-play-state: running;
+}
+
+.carousel:hover {
+    animation-play-state: paused;
+}
+
+.carouselItem {
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Suaviza o crescimento */
+}
+
+.carouselItem:hover {
+    transform: scale(1.1); /* Aumenta o card em 10% */
 }
 
 
-.carrossel-linha {
-width: 100%;
-}
-
-.carrossel-item {
-list-style-type: none;
-padding-left: 0;
-margin: 0;
-}
-
-  
 @keyframes bannermove {
-0% {
-    transform: translateX(0);
-}
-100% {
-    transform: translateX(-50%);
-}
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
