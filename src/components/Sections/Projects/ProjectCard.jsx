@@ -1,5 +1,5 @@
 import projectsData from '@/components/Sections/Projects/assets/projectsData.json';
-import {Box, Button, Card, CardActions, CardContent, CardMedia, Tooltip, Typography} from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Tooltip, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { motion } from "framer-motion";
 import { iconsList } from '../Skills/SkillsIcons';
@@ -13,20 +13,38 @@ export default function ProjectCard({ projectName }) {
     }
 
     return (
-        <Grid size={6}>
+        <Grid size={{ xs: 12, lg: 6 }} >
+
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: false, amount: 0.3 }}
             >
-                <Card sx={{ display: 'flex', borderRadius: 0 }} variant='outlined'>
-                    <CardMedia
-                        component="img"
-                        sx={{ width: 300, height: 200, padding: 1 }}
-                        image={project.imagePath}
-                        alt="blog"
-                    />
+                <Card
+                    variant='outlined'
+                    sx={{
+                        display: 'flex',
+                        borderRadius: 0,
+                        flexDirection: { xs: 'column', md: 'row' },
+                    }}
+                >
+                    <Box
+                        sx={{
+                            padding: 1, 
+                        }}
+                    >
+                        <CardMedia
+                            component="img"
+                            sx={{
+                                width: { xs: '100%', md: 200 },
+                                height: { xs: 150, sm: 250, md: 200 },
+                            }}
+                            image={project.imagePath}
+                            alt={project.title}
+                        />
+                    </Box>
+
                     <CardContent sx={{ alignItems: 'flex-start', display: 'flex', flexDirection: 'column', paddingBottom: '0px !important' }}>
                         <Typography gutterBottom variant="h5" component="div">
                             {project.title}

@@ -9,7 +9,7 @@ export default function Projects() {
         <Box 
             id="projects"
             sx={{
-                height: '92vh',
+                minHeight: '92vh',
                 paddingTop: '50px',
                 textAlign: 'center',
             }}

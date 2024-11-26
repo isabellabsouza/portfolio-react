@@ -10,7 +10,7 @@ export default function Skills() {
     return (
         <Box
             sx={{
-                height: '92vh',
+                height: {xs:'45vh', lg:'92vh'},
                 paddingTop: '50px',
                 textAlign: 'center',
             }}

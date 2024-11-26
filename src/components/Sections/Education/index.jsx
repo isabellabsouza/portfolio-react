@@ -12,7 +12,7 @@ export default function Education() {
         <Box
             id="projects"
             sx={{
-                height: '95vh',
+                minHeight: '95vh',
                 paddingTop: '50px',
                 textAlign: 'center',
             }}
@@ -29,17 +29,17 @@ export default function Education() {
                 }
             </Grid>
             <Grid container spacing={5} >
-                <Grid size={6} >
+                <Grid size={{ xs: 12, lg: 6 }} >
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: false, amount: 0.3 }}
                     >
-                        <Card variant='outlined' sx={{ display: 'flex', borderRadius: 0 }}>
+                        <Card variant='outlined' sx={{ display: 'flex', borderRadius: 0, flexDirection: { xs: 'column', md: 'row' } }}>
                             <CardMedia
                                 component="img"
-                                sx={{ width: 200 }}
+                                sx={{ width: 200, alignSelf: 'center' }}
                                 image={AwsBadge}
                                 alt="Live from space album cover"
                             />
@@ -54,22 +54,36 @@ export default function Education() {
                         </Card>
                     </motion.div>
                 </Grid>
-                <Grid size={6} >
+                <Grid size={{ xs: 12, lg: 6 }} >
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: false, amount: 0.3 }}
                     >
-                        <Card variant='outlined' sx={{ borderRadius: 0, paddingBottom: 2 }}>
+                        <Card variant='outlined' sx={{ borderRadius: 0, paddingBottom: { xs: 0, md: 2 } }}>
                             <CardContent>
                                 <Typography variant="h6" sx={{ padding: 2 }} color='pink'>
                                     Idiomas
                                 </Typography>
-                                <Grid container spacing={2} sx={{ justifyContent: 'center', marginTop: 3 }}>
-                                    <Grid size={2} />
-                                    <Grid size={4} sx={{ display: 'flex', alignItems: 'center' }}>
-
+                                <Grid
+                                    container
+                                    spacing={2}
+                                    sx={{
+                                        marginTop: 3,
+                                        display: 'flex',
+                                        flexDirection: { xs: 'column', md: 'row' },
+                                    }}
+                                >
+                                    <Grid 
+                                        size={{xs: 12, md: 6}} 
+                                        sx={{ 
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            marginLeft: {xs: 8, sm: 32, md: 0, lg: 0},
+                                            justifyContent: {md: 'center'}
+                                        }}
+                                    >
                                         <Avatar src={KoreaFlag} sx={{ width: 56, height: 56 }} />
                                         <Box sx={{ paddingLeft: 2, textAlign: 'start' }}>
                                             <Typography variant="body1">
@@ -80,7 +94,17 @@ export default function Education() {
                                             </Typography>
                                         </Box>
                                     </Grid>
-                                    <Grid size={4} sx={{ display: 'flex', alignItems: 'center' }}>
+
+                                    <Grid 
+                                        size={{xs: 12, md: 6}} 
+                                        sx={{ 
+                                            display: 'flex', 
+                                            alignItems: 'center', 
+                                            marginLeft: {xs: 8, sm: 32, md: 0, lg: 0}, 
+                                            marginTop: { xs: 2, lg: 0 },
+                                            justifyContent: {md: 'center'}
+                                        }}
+                                    >
 
                                         <Avatar src={UsaFlag} sx={{ width: 56, height: 56 }} />
                                         <Box sx={{ paddingLeft: 2, textAlign: 'start' }}>
@@ -92,7 +116,6 @@ export default function Education() {
                                             </Typography>
                                         </Box>
                                     </Grid>
-                                    <Grid size={2} />
                                 </Grid>
                             </CardContent>
                         </Card>

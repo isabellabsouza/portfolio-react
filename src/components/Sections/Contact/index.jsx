@@ -6,7 +6,16 @@ import ContactListItem from './ContactListItem';
 
 export default function Contact() {
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', height:'80vh' }}>
+        <Box 
+            sx={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                textAlign: 'center', 
+                minHeight: {xs: '92vh', md: '80vh'},
+                marginTop: {xs: 10, md: 20} 
+            }}
+        >
             <Typography variant="h4" sx={{ marginBottom: 5 }} >Contato</Typography>
             <List sx={{ gap: 2, display: 'flex', flexDirection: 'column' }}>
                 <ContactListItem 

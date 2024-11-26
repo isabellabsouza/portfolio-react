@@ -2,7 +2,7 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import SecondaryButton from "@/components/Buttons/SecondaryButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Link, Box, Container, IconButton, Typography } from "@mui/material";
+import { Link, Box, Container, IconButton, Typography, useMediaQuery } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import { TypeAnimation } from "react-type-animation";
 import { scroller } from "react-scroll";
@@ -10,41 +10,74 @@ import { scroller } from "react-scroll";
 
 export default function Home() {
 
+    const isSmallScreen = useMediaQuery('(max-width:547px)')
     return (
         <Container >
-            <Box sx={{ height: '100vh', display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
-                <Typography variant="h2">Isabella Bicudo</Typography>
+            <Box
+                sx={{
+                    height: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    px: { xs: 2, sm: 4, md: 6 },
+                }}
+            >
+                <Typography
+                    variant="h2"
+                    sx={{
+                        marginBottom: 2,
+                    }}
+                >
+                    Isabella Bicudo
+                </Typography>
+
                 <TypeAnimation
                     sequence={[
-                        "Desenvolvedora Front-End",
+                        isSmallScreen
+                            ? 'Desenvolvedora\nFront-End'
+                            : 'Desenvolvedora Front-End',
                         1000,
-                        "Desenvolvedora Back-End",
+                        isSmallScreen
+                            ? 'Desenvolvedora\nBack-End'
+                            : 'Desenvolvedora Back-End',
                         1000,
-                        "Desenvolvedora Full-Stack",
+                        isSmallScreen
+                            ? 'Desenvolvedora\nFull-Stack'
+                            : 'Desenvolvedora Full-Stack',
                         1000,
                     ]}
                     wrapper="span"
                     speed={25}
-                    style={{ fontSize: "2em", display: "inline-block" }}
+                    style={{
+                        fontSize: "2em",
+                        display: "inline-block",
+                        whiteSpace: "pre-wrap",
+                        textAlign: "center", 
+                        lineHeight: 1.5,
+                    }}
                     repeat={Infinity}
                 />
+
+
                 <Grid>
                     <Grid sx={{ marginY: 3 }}>
-                        <PrimaryButton 
-                            text="Currículo" 
+                        <PrimaryButton
+                            text="Currículo"
                             onClick={
                                 () => window.open('./assets/curriculo.pdf')
-                            } 
+                            }
                         />
-                        <SecondaryButton 
-                            text="Projetos" 
+                        <SecondaryButton
+                            text="Projetos"
                             onClick={
                                 () => scroller.scrollTo("projects", {
                                     duration: 1000,
                                     delay: 0,
-                                    smooth: "easeInOutQuart",   
+                                    smooth: "easeInOutQuart",
                                 })
-                            } 
+                            }
                         />
                     </Grid>
 
