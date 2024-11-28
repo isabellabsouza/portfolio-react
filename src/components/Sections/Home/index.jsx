@@ -62,7 +62,7 @@ export default function Home() {
 
 
                 <Grid>
-                    <Grid sx={{ marginY: 3 }}>
+                    <Grid sx={{ marginY: 3, display: 'flex' }}>
                         <PrimaryButton
                             text="Currículo"
                             onClick={
